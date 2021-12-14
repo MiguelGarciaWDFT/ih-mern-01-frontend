@@ -4,6 +4,12 @@ const reducer = (globalState, action) => {
 
 	switch (action.type) {
 
+		case "GET_GUITARS":
+			return {
+				...globalState,
+				guitars: action.payload
+			}
+
 		case "CHANGE_TEXT":
 			return {
 				...globalState,

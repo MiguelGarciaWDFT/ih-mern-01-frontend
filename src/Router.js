@@ -8,9 +8,11 @@ import Register from './components/Auth/Register'
 import Home from './components/Home'
 import Layout from './components/Layout'
 import Guitars from './components/Guitars'
+import Stores from './components/Stores'
 
 import GuitarState from './context/Guitar/GuitarState'
 import StoreState from './context/Store/StoreState'
+
 
 // 2. FUNCIÓN
 const Router = () => {
@@ -29,6 +31,7 @@ const Router = () => {
 							<Route path="iniciar-sesion" element={<Login />} />
 							{/* localhost:3000/guitarras */}
 							<Route path="guitarras" element={<Guitars />} />
+							<Route path="stores" element={<Stores />} />
 						</Route>
 					</Routes>
 				</BrowserRouter>
