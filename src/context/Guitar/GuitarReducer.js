@@ -13,7 +13,7 @@ const reducer = (globalState, action) => {
 		case "CHANGE_TEXT":
 			return {
 				...globalState,
-				hola: action.payload
+				mensaje: action.payload
 			}
 
 

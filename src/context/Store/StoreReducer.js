@@ -2,10 +2,17 @@ const reducer = (globalState, action) => {
 
 	switch (action.type) {
 
-		case "CHANGE_TEXT":
+
+		case "GET_STORES":
 			return {
 				...globalState,
-				hola: action.payload
+				stores: action.payload
+			}
+
+		case "CAMBIAR_TEXTO":
+			return {
+				...globalState,
+				estado: action.payload
 			}
 
 

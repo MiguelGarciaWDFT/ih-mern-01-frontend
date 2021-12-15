@@ -20,6 +20,7 @@ const Router = () => {
 	return (
 		<>
 			<GuitarState>
+			<StoreState>
 				<BrowserRouter>
 					<Routes>
 						<Route path="/" element={<Layout />}>
@@ -35,6 +36,7 @@ const Router = () => {
 						</Route>
 					</Routes>
 				</BrowserRouter>
+				</StoreState>
 			</GuitarState>
 		</>
 	)

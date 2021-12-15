@@ -8,24 +8,18 @@ export default function Guitars() {
 	const ctx = useContext(GuitarContext)
 
 	const { 
-		guitars, 
-		hola,
-		changeText, 
-		getGuitars } = ctx
-
+		guitars, mensaje,changeText, getGuitars } = ctx
 
 	// ESTADO LOCAL
-
-
 
 	return (
 		<>
 			<p>Listado de guitarras</p>
-			{/* <p>{ hola }</p>
+			 <p>{ mensaje }</p>
 
 			<button onClick={ () => { changeText() } }>
 				Cambiar texto
-			</button> */}
+			</button> 
 
 			<button onClick={() => { getGuitars() } }>
 				Listar guitarras

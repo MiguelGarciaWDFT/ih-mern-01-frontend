@@ -1,15 +1,15 @@
 
 import { useReducer } from 'react'
 import StoreContext from './StoreContext'
-
 import StoreReducer from './StoreReducer'
+import axiosClient from './../../config/axios'
 
 const StoreState = (props) => {
 
 	// 1. INITIAL STATE (ESTADO INICIAL)
 	const initialState = {
 		stores: [],
-		hola: "mundo"
+		estado: "Tienda abierta"
 	}
 
 	// 2. CONFIGURACIÓN DE REDUCER Y CREACIÓN DE ESTADO GLOBAL
@@ -20,8 +20,24 @@ const StoreState = (props) => {
 	const changeText = () => {
 
 		dispatch({
-			type: "CHANGE_TEXT",
-			payload: "Estoy aprendiendo Context sin morir." 		
+			type: "CAMBIAR_TEXTO",
+			payload: "Tienda cerrada." 	
+		})
+	}
+
+	const getStores = async () => {
+
+		const res = await axiosClient.get("stores/readall")
+	
+
+		console.log("Obteniendo tiendas...")
+	
+		const list = res.data.data
+	
+
+		dispatch({
+			type: "GET_STORES",
+			payload: list
 		})
 
 	}
@@ -32,8 +48,9 @@ const StoreState = (props) => {
 		<StoreContext.Provider
 			value={{
 				stores: globalState.stores,
-				hola: globalState.hola,
-				changeText
+				estado: globalState.estado,
+				changeText,
+				getStores
 			}}
 		>
 			{props.children}

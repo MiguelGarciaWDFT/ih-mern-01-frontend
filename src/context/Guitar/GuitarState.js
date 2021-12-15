@@ -6,9 +6,7 @@
 
 import { useReducer } from 'react'
 import GuitarContext from './GuitarContext'
-
 import GuitarReducer from './GuitarReducer'
-
 import axiosClient from "./../../config/axios"
 
 const GuitarState = (props) => {
@@ -16,7 +14,7 @@ const GuitarState = (props) => {
 	// 1. INITIAL STATE (ESTADO INICIAL)
 	const initialState = {
 		guitars: [],
-		hola: "mundo"
+		mensaje: "Mira las mejores guitarras"
 	}
 
 	// 2. CONFIGURACIÓN DE REDUCER Y CREACIÓN DE ESTADO GLOBAL
@@ -28,7 +26,7 @@ const GuitarState = (props) => {
 
 		dispatch({ // ESTE OBJETO SE LE CONOCE COMO ACTION
 			type: "CHANGE_TEXT",
-			payload: "Estoy aprendiendo Context sin morir." 		
+			payload: "Compra todas nuestras guitarras." 		
 		})
 
 	}
@@ -38,7 +36,7 @@ const GuitarState = (props) => {
 		const res = await axiosClient.get("guitars/readall")
 
 		console.log("Obteniendo guitarras...")
-		
+	
 		const list = res.data.data
 
 		dispatch({
@@ -55,7 +53,7 @@ const GuitarState = (props) => {
 		<GuitarContext.Provider
 			value={{
 				guitars: globalState.guitars,
-				hola: globalState.hola,
+				mensaje: globalState.mensaje,
 				changeText,
 				getGuitars
 			}}
